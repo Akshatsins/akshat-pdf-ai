@@ -1,16 +1,18 @@
+import os
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
-
-
-llm = ChatGroq(
-    model="llama-3.1-8b-instant", 
-    temperature=0
-)
 
 def ask_document(doc_text, user_question):
     """
     Sends the document text + user question to Groq and gets an answer.
     """
+    
+   
+    llm = ChatGroq(
+        model="llama-3.1-8b-instant", 
+        temperature=0,
+        api_key=os.environ.get("GROQ_API_KEY") 
+    )
     
     
     system_prompt = """

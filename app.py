@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 
 
 load_dotenv()
+if "GROQ_API_KEY" in st.secrets:
+    os.environ["GROQ_API_KEY"] = st.secrets["GROQ_API_KEY"]
 
 from utils import extract_text_from_pdf
 from chat_logic import ask_document
